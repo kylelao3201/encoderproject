@@ -1,5 +1,5 @@
 //convert numbers to letters
-var letterConversion = {
+var letters = {
 	65: "a",
 	66: "b",
 	67: "c",
@@ -27,9 +27,16 @@ var letterConversion = {
   89: "y",
   90: "z"
 }
-
 $("#inputArea").keydown(function(e){
-  letters[e.keyCode]
+	if($("#input:checked").val() == "echo"){
+  $("#textArea").append(letters[e.keyCode]);
+}
+	if($("#input:checked").val() == "Caesar cipher"){
+  $("#textArea").append(letters[e.keyCode - 1]);
+}
+	if($("#input:checked").val() == ""){
+  $("#textArea").append(letters[e.keyCode]);
+}
 });
 
 $("input[type='radio']").click(function(){
