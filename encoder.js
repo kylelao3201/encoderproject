@@ -60,12 +60,15 @@ $("#textArea").append("<img src = 'images/runes/" + letters[e.keycode] + ".gif'>
 $("#translationInputText").keydown(function(e){
 	if(e.keyCode == 13){
 	//1. grab the value of the input text box
-  //$("#translationInputText").val()
+  var message = $("#translationInputText").val();
+
 	//2. turn the string in the text box into an array
-	// inputTextBoxString.split("")
+	var messageArray = message.split("");
+
 	//3. loop through the array and traslate each letter
-
-	//4. handy way to go from letter to number: charCodeAt(0)
-
+for( var i = 0; i < messageArray.length; i++){
+	var translateNumber = messageArray[i].charCodeAt(0) - 32 + 1;
+	$("#translationArea").append(letters[translateNumber])
+}
 	}
 });
